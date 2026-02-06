@@ -286,7 +286,7 @@ export function Projects() {
 
         {/* Project Detail Modal */}
         <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
-          <DialogContent className="max-w-4xl p-0 overflow-hidden bg-background/95 backdrop-blur-xl border-white/10 max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-6xl p-0 overflow-hidden bg-background/95 backdrop-blur-xl border-white/10 max-h-[90vh] overflow-y-auto">
             {selectedProject && (
               <motion.div
                 className="flex flex-col"
@@ -303,9 +303,9 @@ export function Projects() {
                       autoPlay
                     />
                   ) : selectedProject.images ? (
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-1 bg-black/50 overflow-y-auto max-h-[500px] p-1">
+                    <div className="grid grid-cols-3 md:grid-cols-4 gap-2 bg-black/50 overflow-y-auto max-h-[400px] p-2">
                       {selectedProject.images.map((img, i) => (
-                        <div key={i} className="aspect-square relative overflow-hidden group/img">
+                        <div key={i} className="aspect-video relative overflow-hidden group/img rounded-sm">
                           <img
                             src={img}
                             alt={`${selectedProject.title} - ${i + 1}`}
@@ -456,7 +456,7 @@ function ProjectCard({
               <img
                 src={project.image}
                 alt={project.title}
-                className={`w-full h-full transition-transform duration-700 group-hover:scale-110 ${project.category === 'design' || project.category === 'videography' ? 'object-cover' : 'object-contain p-8 bg-black/20'}`}
+                className={`w-full h-full transition-transform duration-700 group-hover:scale-110 object-cover ${project.category === 'videography' ? '' : ''}`}
               />
             )}
 
@@ -506,12 +506,7 @@ function ProjectCard({
             </p>
 
             {/* Last updated for GitHub projects */}
-            {githubRepo && (
-              <div className="flex items-center gap-1 mt-3 text-xs text-muted-foreground">
-                <Clock className="w-3 h-3" />
-                <span>Updated {formatDate(githubRepo.updated_at)}</span>
-              </div>
-            )}
+            {/* Last updated hidden as requested */}
           </CardContent>
         </Card>
       </div>

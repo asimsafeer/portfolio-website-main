@@ -42,6 +42,13 @@ const customDescriptions: Record<string, string> = {
         "Classic Snake-Water-Gun game implementation in Python with CLI interface.",
 };
 
+// Custom images for known repos (overriding OpenGraph)
+const customImages: Record<string, string> = {
+    "MLOps-Project": "/assets/portfolio/github/mlops.png",
+    Jarvis: "/assets/portfolio/github/jarvis.png",
+    "Virtual-Assistant": "/assets/portfolio/github/virtual-assistant.png",
+};
+
 export async function fetchGitHubRepos(
     username: string = "asimsafeer"
 ): Promise<GitHubRepo[]> {
@@ -61,7 +68,12 @@ export async function fetchGitHubRepos(
         }
 
         const repos: GitHubRepo[] = await response.json();
-        return repos.filter((repo) => !repo.name.includes(".github.io")); // Filter out GitHub pages repos
+        const filteredRepos = repos.filter((repo) => !repo.name.includes(".github.io"));
+
+        // Filter to only include repositories we have custom descriptions for (as requested to "not pick all")
+        const specificRepos = filteredRepos.filter(repo => Object.keys(customDescriptions).includes(repo.name));
+
+        return specificRepos.length > 0 ? specificRepos : filteredRepos.slice(0, 6); // Fallback if no matches
     } catch (error) {
         console.error("Failed to fetch GitHub repos:", error);
         return [];
@@ -88,7 +100,7 @@ export function mapRepoToProject(repo: GitHubRepo): Project {
         id: `github-${repo.name.toLowerCase()}`,
         title: repo.name.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
         description,
-        image: `https://opengraph.githubassets.com/1/${repo.full_name}`,
+        image: customImages[repo.name] || `https://opengraph.githubassets.com/1/${repo.full_name}`,
         tags,
         link: repo.homepage || repo.html_url,
         github: repo.html_url,
