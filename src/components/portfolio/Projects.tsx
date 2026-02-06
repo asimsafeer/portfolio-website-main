@@ -18,8 +18,7 @@ import { fetchGitHubRepos, mapRepoToProject, formatDate, type GitHubRepo } from 
 
 const categories = [
   { id: 'all', label: 'All Work', icon: Layout },
-  { id: 'software', label: 'Software', icon: Code2 },
-  { id: 'github', label: 'GitHub', icon: Github },
+  { id: 'software', label: 'UI/UX & Code', icon: Code2 },
   { id: 'videography', label: 'Videography', icon: Video },
   { id: 'design', label: 'Graphic Design', icon: Palette }
 ]
@@ -121,7 +120,7 @@ export function Projects() {
       }
     }
 
-    if (activeCategory === 'github' || activeCategory === 'all') {
+    if (activeCategory === 'software' || activeCategory === 'all') {
       loadGitHubRepos()
     }
   }, [activeCategory, githubProjects.length])
@@ -129,9 +128,14 @@ export function Projects() {
   // Combine all projects
   const allProjects = [...projects, ...githubProjects]
 
-  const filteredProjects = allProjects.filter(project =>
-    activeCategory === 'all' || project.category === activeCategory
-  )
+  const filteredProjects = allProjects.filter(project => {
+    if (activeCategory === 'all') return true
+    if (activeCategory === 'software') {
+      // Include both software projects and GitHub repos
+      return project.category === 'software' || project.category === 'github'
+    }
+    return project.category === activeCategory
+  })
 
   const handleProjectClick = (project: Project) => {
     if (project.category === 'design' || project.category === 'videography') {
@@ -298,11 +302,23 @@ export function Projects() {
                       controls
                       autoPlay
                     />
+                  ) : selectedProject.images ? (
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-1 bg-black/50 overflow-y-auto max-h-[500px] p-1">
+                      {selectedProject.images.map((img, i) => (
+                        <div key={i} className="aspect-square relative overflow-hidden group/img">
+                          <img
+                            src={img}
+                            alt={`${selectedProject.title} - ${i + 1}`}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110"
+                          />
+                        </div>
+                      ))}
+                    </div>
                   ) : (
                     <img
                       src={selectedProject.image}
                       alt={selectedProject.title}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-contain bg-black/20"
                     />
                   )}
                 </div>
@@ -327,7 +343,7 @@ export function Projects() {
                           <Button asChild>
                             <a href={selectedProject.link} target="_blank" rel="noreferrer" className="gap-2">
                               <ExternalLink className="w-4 h-4" />
-                              Live Demo
+                              {(selectedProject.category === 'software' || selectedProject.category === 'design') ? 'View Prototype' : 'Live Demo'}
                             </a>
                           </Button>
                         </motion.div>
@@ -420,6 +436,7 @@ function ProjectCard({
               <div className="w-full h-full relative">
                 <video
                   src={project.video}
+                  poster={project.image}
                   className="w-full h-full object-cover"
                   muted
                   loop
@@ -439,7 +456,7 @@ function ProjectCard({
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className={`w-full h-full transition-transform duration-700 group-hover:scale-110 ${project.category === 'design' || project.category === 'videography' ? 'object-cover' : 'object-contain p-8 bg-black/20'}`}
               />
             )}
 
@@ -448,24 +465,6 @@ function ProjectCard({
                 {project.category}
               </Badge>
             </div>
-
-            {/* GitHub stats badge */}
-            {githubRepo && (
-              <div className="absolute top-4 right-4 z-20 flex gap-2">
-                {githubRepo.stargazers_count > 0 && (
-                  <Badge variant="outline" className="bg-background/80 backdrop-blur-sm border-white/10 gap-1">
-                    <Star className="w-3 h-3" />
-                    {githubRepo.stargazers_count}
-                  </Badge>
-                )}
-                {githubRepo.forks_count > 0 && (
-                  <Badge variant="outline" className="bg-background/80 backdrop-blur-sm border-white/10 gap-1">
-                    <GitFork className="w-3 h-3" />
-                    {githubRepo.forks_count}
-                  </Badge>
-                )}
-              </div>
-            )}
 
             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 z-30">
               {project.category === 'videography' ? (

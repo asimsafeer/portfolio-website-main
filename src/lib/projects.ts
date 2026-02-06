@@ -17,14 +17,14 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // SOFTWARE PROJECTS
+  // UI/UX & SOFTWARE PROJECTS
   {
     id: "poul3y",
     title: "Poul3y App",
     description: "A comprehensive digital platform for modern poultry industry management. Features real-time data access, disease tracking, and resource planning to optimize farm operations.",
     image: "/assets/portfolio/AasimSafeer-Portfolio/Poul3y App/Poul3y Logo.png",
     tags: ["Flutter", "UI/UX", "Mobile App", "Figma"],
-    link: "https://www.figma.com/design/DlvNVRULKgxqMXLcuGbKaT/Poul3y?node-id=0-1&t=lIlyVWJoDn0A8Giw-1",
+    link: "https://www.figma.com/proto/DlvNVRULKgxqMXLcuGbKaT/Poul3y?t=atrFCjSIZ2aDvBzX-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=69-12885&starting-point-node-id=69%3A12885",
     github: "#",
     category: "software",
     featured: true,
@@ -40,7 +40,7 @@ export const projects: Project[] = [
       "/assets/portfolio/AasimSafeer-Portfolio/Poultry Calculator App/UI Design/Screenshot 2026-01-08 at 1.03.55 PM.png"
     ],
     tags: ["Flutter", "Utility", "Calculator", "Figma"],
-    link: "https://www.figma.com/design/o0QdbJi1Tqc0cSyW93V6E3/Poul3y-Calculator?node-id=0-1&t=s4XGmYpGyIHn9Yqi-1",
+    link: "https://www.figma.com/proto/o0QdbJi1Tqc0cSyW93V6E3/Poul3y-Calculator?node-id=1-1705&p=f&t=B2mmt5PBqMDExhEy-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     github: "#",
     category: "software",
     featured: true,
@@ -58,7 +58,15 @@ export const projects: Project[] = [
       "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/2.png",
       "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/3.png",
       "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/4.png",
-      "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/5.png"
+      "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/5.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/6.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/7.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/8.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/9.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/2 (1).png",
+      "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/3 (1).png",
+      "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/4 (1).png",
+      "/assets/portfolio/AasimSafeer-Portfolio/CEMS Job Ads/Hiring Posts/8 (1).png"
     ],
     tags: ["Social Media", "Branding", "Canva", "Adobe Suite"],
     link: "#",
@@ -74,7 +82,27 @@ export const projects: Project[] = [
     image: "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Ecosun Global Logo.png",
     images: [
       "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Brochures & Cards/Urdu version brochure.jpeg",
-      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/1.png" // Assuming standard naming, fallback check later
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/1.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/2.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/3.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/4.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/5.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/6.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/7.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/8.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/9.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/10.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/11.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/12.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/13.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/14.png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/2 (1).png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/3 (1).png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/4 (1).png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/5 (1).png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/6 (1).png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/7 (1).png",
+      "/assets/portfolio/AasimSafeer-Portfolio/EcoSun Global/Social Media Posts/Posts/8 (1).png"
     ],
     tags: ["Print Design", "Corporate Identity", "Marketing", "Canva"],
     link: "https://www.canva.com/design/DAGrWsjV3RY/_j6u0BRSt0Mi92Yu6Og2nA/edit",
